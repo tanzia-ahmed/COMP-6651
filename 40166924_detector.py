@@ -2,6 +2,7 @@ import string
 import re
 import sys
 
+# 40166924- ahmed, t.
 hash_table = {"one":[],"two":[]}
 nGram = 5
 filters = {'he', 'no', 'do', 'wasn', 'between', 't', 'm', 'was', 'with', 'other', 'down', 'above', 'does', 'they', 'but', 's',
@@ -120,19 +121,6 @@ def main(f1, f2):
     # print(rate)
 
     if rate > 28.8:
-        author = "(?:[A-Z][A-Za-z'`-]+)"
-        etal = "(?:et al.?)"
-        additional = "(?:,? (?:(?:and |& )?" + author + "|" + etal + "))"
-        year_num = "(?:19|20)[0-9][0-9]"
-        page_num = "(?:, p.? [0-9]+)?"  # Always optional
-        year = "(?:, *" + year_num + page_num + "| *\(" + year_num + page_num + "\))"
-        regex = "(" + author + additional + "*" + year + ")"
-
-        matches1 = re.findall(regex, FILE1_TEXT)
-        matches2 = re.findall(regex, FILE2_TEXT)
-        if len(matches2) > 0:
-            print(0)
-        else:
             print(1)
     else:
         print(0)
